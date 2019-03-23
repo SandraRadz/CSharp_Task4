@@ -12,5 +12,7 @@ namespace СSharp_Task4
             InitializeComponent();
             DataContext = new UserListViewModel();
         }
+
+        
     }
 }
