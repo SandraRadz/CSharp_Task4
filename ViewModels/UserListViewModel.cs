@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
@@ -69,11 +70,11 @@ namespace СSharp_Task4.ViewModels
                 OnPropertyChanged();
             }
         }
-        public string Birth
+        public DateTime Birth
         {
             get
             {
-                return ("birth " + _birth);
+                return  _birth;
             }
             set
             {
@@ -138,7 +139,6 @@ namespace СSharp_Task4.ViewModels
             LoaderManager.Instance.ShowLoader();
             var done = await Task.Run(() =>
             {
-                Thread.Sleep(5000);
                 try
                 {
                     StationManager.DataStorage.AddUser(new Person(_name, _lastName, _email, _birth));
@@ -166,10 +166,19 @@ namespace СSharp_Task4.ViewModels
                     MessageBox.Show(e.Message);
                     return false;
                 }
+
                 
                 return true;
 
             });
+           if (done)
+                {
+                Name = "";
+                LastName = "";
+                Email = "";
+                Birth = DateTime.Today;
+
+             }
             LoaderManager.Instance.HideLoader();
         }
 
