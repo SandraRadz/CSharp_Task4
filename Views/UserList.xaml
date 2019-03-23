@@ -33,13 +33,21 @@
         <Label Grid.Column ="3" Width="70" Content="Birth"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
         <DatePicker Grid.Column ="3" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
         <Label Grid.Column ="4" Width="70" Content="IsAdult"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
-        <TextBox Grid.Column ="4" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FIsAdult, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <ComboBox  Grid.Column ="4" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FIsAdult, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339">
+            <TextBlock></TextBlock>
+            <TextBlock>true</TextBlock>
+            <TextBlock>false</TextBlock>
+        </ComboBox>
         <Label Grid.Column ="5" Width="70" Content="SunSign"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
         <TextBox Grid.Column ="5" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FSunSign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
         <Label Grid.Column ="6" Width="70" Content="ChineseSign"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
         <TextBox Grid.Column ="6" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FChineseSign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
         <Label Grid.Column ="7" Width="70" Content="IsBirthday"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
-        <TextBox Grid.Column ="7" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FIsBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <ComboBox Grid.Column ="7" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FIsBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339">
+            <TextBlock></TextBlock>
+            <TextBlock>true</TextBlock>
+            <TextBlock>false</TextBlock>
+        </ComboBox>
         <Button FontSize="18" Content="All" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AllCommand}" Margin="10,16,10,404" />
         <Button FontSize="18" Content="Filter" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding FilterCommand}" Margin="10,16,10,405"/>
 
