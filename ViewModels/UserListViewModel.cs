@@ -6,6 +6,7 @@ using System.Data;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Policy;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
@@ -330,6 +331,15 @@ namespace СSharp_Task4.ViewModels
                 try
                 {
                     Persons = new ObservableCollection<Person>(StationManager.DataStorage.UsersList);
+                    FName = "";
+                    FLastName = "";
+                    FEmail = "";
+                    FBirth = DateTime.MinValue;
+                    FIsAdult = false;
+                    FChineseSign = "";
+                    FSunSign = "";
+                    FIsBirth = false;
+
                 }
                 catch (Exception e)
                 {
@@ -349,8 +359,16 @@ namespace СSharp_Task4.ViewModels
 
                    var users = StationManager.DataStorage.UsersList;
                     var selectedUsers = from user in users
-                        where user.Name == FName
-                        select user;
+                        where (FName!=""?user.Name == FName:1==1)
+                        where (FLastName != "" ? user.LastName == FLastName : 1 == 1)
+                        where (FEmail != "" ? user.Email == FEmail : 1 == 1)
+                        //where (FBirth != "" ? user.Name == FName : 1 == 1)
+                        where user.IsAdult == FIsAdult
+                        where (FChineseSign != "" ? user.ChineseSign == FChineseSign : 1 == 1)
+                        where (FSunSign != "" ? user.SunSign == FSunSign : 1 == 1)
+                        where user.IsBirthday == FIsBirth
+              
+                                        select user;
                     Persons = new ObservableCollection<Person>(selectedUsers);
 
                 }
