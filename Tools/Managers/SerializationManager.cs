@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
+using СSharp_Task4.Tools;
 
-namespace СSharp_Task4.Tools
+namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers
 {
     internal static class SerializationManager
     {
@@ -31,7 +28,7 @@ namespace СSharp_Task4.Tools
             }
         }
 
-        internal static TObject Deserialize<TObject>(string filePath) where TObject : class
+        internal static TObject Deserialize<TObject>(string filePath) where TObject: class
         {
             try
             {
@@ -40,7 +37,7 @@ namespace СSharp_Task4.Tools
                 var formatter = new BinaryFormatter();
                 using (var stream = new FileStream(filePath, FileMode.Open))
                 {
-                    return (TObject)formatter.Deserialize(stream);
+                    return (TObject) formatter.Deserialize(stream);
                 }
             }
             catch (FileNotFoundException ex)

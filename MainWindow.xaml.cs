@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,8 +14,10 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+using KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models;
 using СSharp_Task4.Tools;
+using СSharp_Task4.Tools.DataStorage;
+using СSharp_Task4.Tools.Managers;
 using СSharp_Task4.ViewModels;
 
 namespace СSharp_Task4
@@ -25,14 +29,16 @@ namespace СSharp_Task4
     {
         public MainWindow()
         {
+            InitializeApplication();
             InitializeComponent();
             DataContext = new MainWindowViewModel();
+   
         }
 
-        protected override void OnClosing(CancelEventArgs e)
+        private void InitializeApplication()
         {
-            PersonListHelper.SaveData();
-            base.OnClosing(e);
-        }
+            StationManager.Initialize(new SerializedDataStorage());
+         }
+        
     }
 }

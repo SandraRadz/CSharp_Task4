@@ -9,10 +9,10 @@ namespace СSharp_Task4.Tools
             Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
 
         internal static readonly string AppFolderPath =
-            Path.Combine(AppDataPath, "CSharp_HW4");
+            Path.Combine(AppDataPath, "CSharpKMA");
 
         internal static readonly string StorageFilePath =
-            Path.Combine(AppFolderPath, "PersonList.cskma");
+            Path.Combine(AppFolderPath, "Radzievska_UserList.cskma");
 
         internal static bool CreateFolderAndCheckFileExistance(string filePath)
         {

@@ -8,9 +8,10 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using System.Windows;
 using KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models;
-using KMA.ProgrammingInCSharp2019.Practice5.Navigation.Tools;
-using СSharp_Task4.Annotations;
+using KMA.ProgrammingInCSharp2019.Practice7.UserList.Properties;
+using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers;
 using СSharp_Task4.Tools;
+using СSharp_Task4.Tools.Managers;
 
 namespace СSharp_Task4.ViewModels
 {
@@ -88,14 +89,15 @@ namespace СSharp_Task4.ViewModels
 
         internal UserListViewModel()
         {
-            _persons = new ObservableCollection<Person>(PersonListHelper.Persons);
+            _persons = new ObservableCollection<Person>(StationManager.DataStorage.UsersList);
         }
 
         public RelayCommand<object> AddCommand
         {
             get
             {
-                return _addUserCommand ?? (_addUserCommand = new RelayCommand<object>(CreateUser));
+                return _addUserCommand ?? (_addUserCommand = new RelayCommand<object>(
+                           CreateUser, o => CanExecuteCommand()));
             }
         }
 
@@ -133,6 +135,11 @@ namespace СSharp_Task4.ViewModels
                 return true;
 
             });
+        }
+
+        private bool CanExecuteCommand()
+        {
+            return !string.IsNullOrWhiteSpace(_name) && !string.IsNullOrWhiteSpace(_lastName) && !string.IsNullOrWhiteSpace(_email) && !(_birth == default(DateTime));
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

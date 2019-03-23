@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
-using СSharp_Task4.Annotations;
+using KMA.ProgrammingInCSharp2019.Practice7.UserList.Properties;
 
 namespace СSharp_Task4.ViewModels
 {
