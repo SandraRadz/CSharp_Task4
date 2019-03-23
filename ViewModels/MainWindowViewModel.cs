@@ -5,13 +5,30 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using KMA.ProgrammingInCSharp2019.Practice7.UserList.Properties;
+using СSharp_Task4.Tools;
+using СSharp_Task4.Tools.Managers;
 
 namespace СSharp_Task4.ViewModels
 {
-    class MainWindowViewModel : INotifyPropertyChanged
+    class MainWindowViewModel : BaseViewModel, ILoaderOwner
     {
+        #region Fields
+        private Visibility _loaderVisibility = Visibility.Hidden;
         private bool _isControlEnabled = true;
+        #endregion
+
+        #region Properties
+        public Visibility LoaderVisibility
+        {
+            get { return _loaderVisibility; }
+            set
+            {
+                _loaderVisibility = value;
+                OnPropertyChanged();
+            }
+        }
         public bool IsControlEnabled
         {
             get { return _isControlEnabled; }
@@ -21,13 +38,11 @@ namespace СSharp_Task4.ViewModels
                 OnPropertyChanged();
             }
         }
+        #endregion
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        internal MainWindowViewModel()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            LoaderManager.Instance.Initialize(this);
         }
     }
 }

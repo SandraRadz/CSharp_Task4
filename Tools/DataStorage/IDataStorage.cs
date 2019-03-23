@@ -9,7 +9,7 @@ namespace СSharp_Task4.Tools.DataStorage
 
         //Person GetUserByLogin(string login);
 
-        void AddUser(Person user);
+        List<Person> AddUser(Person user);
         List<Person> UsersList { get; }
     }
 }

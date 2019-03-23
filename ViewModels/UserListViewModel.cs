@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models;
@@ -26,6 +27,10 @@ namespace СSharp_Task4.ViewModels
         private ObservableCollection<Person> _persons;
 
         private RelayCommand<object> _addUserCommand;
+        private RelayCommand<object> _editUserCommand;
+        private RelayCommand<object> _saveUserCommand;
+        private RelayCommand<object> _deleteUserCommand;
+
 
         public string Name
         {
@@ -101,11 +106,39 @@ namespace СSharp_Task4.ViewModels
             }
         }
 
+        public RelayCommand<object> EditCommand
+        {
+            get
+            {
+                return _editUserCommand ?? (_editUserCommand = new RelayCommand<object>(
+                           CreateUser, o => CanExecuteCommand()));
+            }
+        }
+
+        public RelayCommand<object> SaveCommand
+        {
+            get
+            {
+                return _saveUserCommand ?? (_saveUserCommand = new RelayCommand<object>(
+                           CreateUser, o => CanExecuteCommand()));
+            }
+        }
+
+        public RelayCommand<object> DeleteCommand
+        {
+            get
+            {
+                return _deleteUserCommand ?? (_deleteUserCommand = new RelayCommand<object>(
+                           DeleteUser));
+            }
+        }
+
         private async void CreateUser(object o)
         {
-
+            LoaderManager.Instance.ShowLoader();
             var done = await Task.Run(() =>
             {
+                Thread.Sleep(5000);
                 try
                 {
                     StationManager.DataStorage.AddUser(new Person(_name, _lastName, _email, _birth));
@@ -135,6 +168,16 @@ namespace СSharp_Task4.ViewModels
                 }
                 
                 return true;
+
+            });
+            LoaderManager.Instance.HideLoader();
+        }
+
+        private async void DeleteUser(object o)
+        {
+            await Task.Run(() =>
+            {
+
 
             });
         }

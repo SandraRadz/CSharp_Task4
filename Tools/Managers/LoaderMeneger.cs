@@ -1,7 +1,6 @@
 ﻿using System.Windows;
-using СSharp_Task4.Tools;
 
-namespace KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers
+namespace СSharp_Task4.Tools.Managers
 {
     internal class LoaderManager
     {

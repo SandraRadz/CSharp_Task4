@@ -50,10 +50,11 @@ namespace СSharp_Task4.Tools.DataStorage
             return _users.FirstOrDefault(u => u.Login == login);
         }
         */
-        public void AddUser(Person user)
+        public List<Person> AddUser(Person user)
         {
             _users.Add(user);
             SaveChanges();
+            return _users;
         }
 
         public List<Person> UsersList
