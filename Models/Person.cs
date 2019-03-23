@@ -28,10 +28,7 @@ namespace KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models
             _lastName = lastName;
             _email = email;
             _birth = birth;
-            _isAdult = CalcIsAdult();
-            _sunSign = CalcSunSign();
-            _chineseSign = CalcChineseSign();
-            _isBirthday = CalcIsBirthday(); 
+           
         }
 
         public Person(string name, string lastName, DateTime birth) : this(name, lastName, "none", birth)
@@ -104,6 +101,10 @@ namespace KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models
         {
             get
             {
+                if (_isAdult == null)
+                {
+                    return _isAdult = CalcIsAdult();
+                }
                 return _isAdult;
             }
         }
@@ -112,6 +113,10 @@ namespace KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models
         {
             get
             {
+                if (_sunSign == null)
+                {
+                    return _sunSign = CalcSunSign();
+                }
                 return _sunSign;
             }
         }
@@ -120,6 +125,10 @@ namespace KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models
         {
             get
             {
+                if (_chineseSign == null)
+                {
+                    return _chineseSign = CalcChineseSign();
+                }
                 return _chineseSign;
             }
         }
@@ -128,6 +137,10 @@ namespace KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models
         {
             get
             {
+                if (_isBirthday == null)
+                {
+                    return _isBirthday = CalcIsBirthday();
+                }
                 return _isBirthday;
             }
         }
