@@ -1,0 +1,23 @@
+﻿<UserControl x:Class="СSharp_Task4.UserList"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:СSharp_Task4"
+        mc:Ignorable="d"
+        Height="450" Width="800">
+    <Grid>
+        <DataGrid ItemsSource="{Binding Persons, Mode=OneWay}" IsReadOnly="True" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="First Name" Binding="{Binding Name}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="E-mail" Binding="{Binding Email}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Birth" Binding="{Binding Birth}"></DataGridTextColumn>
+                <DataGridTextColumn Header="IsAdult" Binding="{Binding IsAdult}"></DataGridTextColumn>
+                <DataGridTextColumn Header="SunSign" Binding="{Binding SunSign}"></DataGridTextColumn>
+                <DataGridTextColumn Header="ChineseSign" Binding="{Binding ChineseSign}"></DataGridTextColumn>
+                <DataGridTextColumn Header="IsBirthday" Binding="{Binding IsBirthday}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>
