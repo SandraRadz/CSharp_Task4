@@ -362,7 +362,7 @@ namespace СSharp_Task4.ViewModels
                         where (FName == "" || user.Name == FName)
                         where (FLastName == "" || user.LastName == FLastName)
                         where (FEmail == "" || user.Email == FEmail)
-                        where (FBirth != DateTime.Today || user.Name == FName)
+                        where (FBirth == DateTime.MinValue || user.Name == FName)
                         where user.IsAdult == FIsAdult
                         where (FChineseSign == "" || user.ChineseSign == FChineseSign)
                         where (FSunSign == "" || user.SunSign == FSunSign)

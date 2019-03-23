@@ -22,6 +22,8 @@
             <ColumnDefinition Width="162" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Label Grid.Column ="0" Content="Date filter doesn't work, while date == 01/01/0001"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,14,0,406" Grid.ColumnSpan="6" />
+
         <Label Grid.Column ="0" Width="70" Content="Name"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
         <TextBox Grid.Column ="0" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
         <Label Grid.Column ="1" Width="70" Content="Last Name"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
