@@ -24,15 +24,25 @@ namespace СSharp_Task4.ViewModels
         private string _lastName;
         private string _email;
         private DateTime _birth;
+
+        private string _fName;
+        private string _fLastName;
+        private string _fEmail;
+        private DateTime _fBirth;
+        private bool _fIsAdult;
+        private string _fSunSign;
+        private string _fChineseSign;
+        private bool _fIsBirth;
+
         public Person SelectedItem { get; set; }
 
         private ObservableCollection<Person> _persons;
 
         private RelayCommand<object> _addUserCommand;
         private RelayCommand<object> _editUserCommand;
-        private RelayCommand<object> _saveUserCommand;
         private RelayCommand<object> _deleteUserCommand;
-
+        private RelayCommand<object> _allCommand;
+        private RelayCommand<object> _filterCommand;
 
         public string Name
         {
@@ -84,6 +94,106 @@ namespace СSharp_Task4.ViewModels
             }
         }
 
+        public string FName
+        {
+            get
+            {
+                return _fName;
+            }
+            set
+            {
+                _fName = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string FLastName
+        {
+            get
+            {
+                return _fLastName;
+            }
+            set
+            {
+                _fLastName = value;
+                OnPropertyChanged();
+            }
+        }
+        public string FEmail
+        {
+            get
+            {
+                return _fEmail;
+            }
+            set
+            {
+                _fEmail = value;
+                OnPropertyChanged();
+            }
+        }
+        public DateTime FBirth
+        {
+            get
+            {
+                return _fBirth;
+            }
+            set
+            {
+                _fBirth = Convert.ToDateTime(value);
+                OnPropertyChanged();
+            }
+        }
+
+        public bool FIsAdult
+        {
+            get
+            {
+                return _fIsAdult;
+            }
+            set
+            {
+                _fIsAdult = value;
+                OnPropertyChanged();
+            }
+        }
+
+        public string FSunSign
+        {
+            get
+            {
+                return _fSunSign;
+            }
+            set
+            {
+                _fSunSign = value;
+                OnPropertyChanged();
+            }
+        }
+        public string FChineseSign
+        {
+            get
+            {
+                return _fChineseSign;
+            }
+            set
+            {
+                _fChineseSign = value;
+                OnPropertyChanged();
+            }
+        }
+        public bool FIsBirth
+        {
+            get
+            {
+                return _fIsBirth;
+            }
+            set
+            {
+                _fIsBirth = value;
+                OnPropertyChanged();
+            }
+        }
+
         public ObservableCollection<Person> Persons
         {
             get => _persons;
@@ -127,6 +237,23 @@ namespace СSharp_Task4.ViewModels
             }
         }
 
+        public RelayCommand<object> AllCommand
+        {
+            get
+            {
+                return _allCommand ?? (_allCommand = new RelayCommand<object>(
+                           GetAllUser));
+            }
+        }
+
+        public RelayCommand<object> FilterCommand
+        {
+            get
+            {
+                return _filterCommand ?? (_filterCommand = new RelayCommand<object>(
+                           GetFilteredUser));
+            }
+        }
         private async void CreateUser(object o)
         {
             LoaderManager.Instance.ShowLoader();
@@ -195,6 +322,46 @@ namespace СSharp_Task4.ViewModels
             LoaderManager.Instance.HideLoader();
         }
 
+        private async void GetAllUser(object o)
+        {
+            LoaderManager.Instance.ShowLoader();
+            await Task.Run(() =>
+            {
+                try
+                {
+                    Persons = new ObservableCollection<Person>(StationManager.DataStorage.UsersList);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Some trouble with filter");
+                }
+            });
+            LoaderManager.Instance.HideLoader();
+        }
+
+        private async void GetFilteredUser(object o)
+        {
+            LoaderManager.Instance.ShowLoader();
+            await Task.Run(() =>
+            {
+                try
+                {
+
+                   var users = StationManager.DataStorage.UsersList;
+                    var selectedUsers = from user in users
+                        where user.Name == FName
+                        select user;
+                    Persons = new ObservableCollection<Person>(selectedUsers);
+
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Some trouble with filter");
+                }
+            });
+            LoaderManager.Instance.HideLoader();
+        }
+
         private async void EditUser(object o)
         {
             LoaderManager.Instance.ShowLoader();
@@ -202,7 +369,7 @@ namespace СSharp_Task4.ViewModels
             {
                 try
                 {
-                    
+
                     Name = SelectedItem.Name;
                     LastName = SelectedItem.LastName;
                     Email = SelectedItem.Email;
@@ -216,8 +383,6 @@ namespace СSharp_Task4.ViewModels
             });
             LoaderManager.Instance.HideLoader();
         }
-
-     
 
         private bool CanExecuteCommand()
         {

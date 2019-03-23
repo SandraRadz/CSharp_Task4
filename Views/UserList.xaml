@@ -5,17 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:СSharp_Task4"
         mc:Ignorable="d"
-        Height="450" Width="1000">
+        Height="450" Width="1250">
     <Grid>
+
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="457" />
-            <ColumnDefinition Width="130" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="80" />
+            <ColumnDefinition Width="80" />
             <ColumnDefinition Width="130"/>
+            <ColumnDefinition Width="162" />
             <ColumnDefinition Width="162" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
+        <Label Grid.Column ="0" Width="70" Content="Name"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
+        <TextBox Grid.Column ="0" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <Label Grid.Column ="1" Width="70" Content="Last Name"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
+        <TextBox Grid.Column ="1" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FLastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <Label Grid.Column ="2" Width="70" Content="Email"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
+        <TextBox Grid.Column ="2" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FEmail, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <Label Grid.Column ="3" Width="70" Content="Birth"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
+        <DatePicker Grid.Column ="3" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <Label Grid.Column ="4" Width="70" Content="IsAdult"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
+        <TextBox Grid.Column ="4" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FIsAdult, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <Label Grid.Column ="5" Width="70" Content="SunSign"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
+        <TextBox Grid.Column ="5" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FSunSign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <Label Grid.Column ="6" Width="70" Content="ChineseSign"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
+        <TextBox Grid.Column ="6" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FChineseSign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <Label Grid.Column ="7" Width="70" Content="IsBirthday"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,46,0,374" />
+        <TextBox Grid.Column ="7" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FIsBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,81,10,339" />
+        <Button FontSize="18" Content="All" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AllCommand}" Margin="10,16,10,404" />
+        <Button FontSize="18" Content="Filter" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding FilterCommand}" Margin="10,16,10,405"/>
 
-        <DataGrid ItemsSource="{Binding Persons, Mode=OneWay}"  SelectedItem="{Binding SelectedItem}" IsReadOnly="True" AutoGenerateColumns="False" Margin="0,0,5,0" >
+        <DataGrid ItemsSource="{Binding Persons, Mode=OneWay}" Grid.ColumnSpan="8" SelectedItem="{Binding SelectedItem}" IsReadOnly="True" AutoGenerateColumns="False" Margin="10,122,10,33" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"></DataGridTextColumn>
@@ -27,17 +53,17 @@
                 <DataGridTextColumn Header="IsBirthday" Binding="{Binding IsBirthday}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Name" FontSize="18" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,70,3,350" />
-        <TextBox FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,10,298" Grid.Column="1"/>
-        <Label Content="Last name" FontSize="18" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,70,24,350" />
-        <TextBox FontSize="18" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,10,298"/>
-        <Label Content="Email"  FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,70,55,350" Grid.Column="3" />
-        <TextBox FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,10,298" Grid.Column="3" />
-        <Label Content="Birthday"  FontSize="18" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="13,70,10.333,333" />
-        <DatePicker FontSize="18" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedDate="{Binding Birth}" Margin="10,122,13.333,298"/>
-        <Button FontSize="18" Content="Add" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221" />
-        <Button FontSize="18" Content="Edit" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding EditCommand}" Margin="31,187,25,221" />
-        <Button FontSize="18" Content="Delete" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding DeleteCommand}" Margin="31,187,25,221"/>
-       
+        <Label Content="Name" FontSize="18" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="13,70,0,350" />
+        <TextBox FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,10,298" Grid.Column="8"/>
+        <Label Content="Last name" FontSize="18" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,70,24,350" />
+        <TextBox FontSize="18" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,10,298"/>
+        <Label Content="Email"  FontSize="18" Grid.Column ="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,70,55,350" />
+        <TextBox FontSize="18" HorizontalAlignment="Stretch" Grid.Column ="10"  VerticalAlignment="Stretch" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,10,298" />
+        <Label Content="Birthday"  FontSize="18" Grid.Column="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="13,70,10.333,333" />
+        <DatePicker FontSize="18" Grid.Column="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedDate="{Binding Birth}" Margin="10,122,13.333,298"/>
+        <Button FontSize="18" Content="Add" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221" />
+        <Button FontSize="18" Content="Edit" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding EditCommand}" Margin="31,187,25,221" />
+        <Button FontSize="18" Content="Delete" Grid.Column="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding DeleteCommand}" Margin="31,187,25,221"/>
     </Grid>
+
 </UserControl>
