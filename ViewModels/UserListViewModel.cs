@@ -30,10 +30,10 @@ namespace СSharp_Task4.ViewModels
         private string _fLastName;
         private string _fEmail;
         private DateTime _fBirth;
-        private bool _fIsAdult;
+        private string _fIsAdult;
         private string _fSunSign;
         private string _fChineseSign;
-        private bool _fIsBirth;
+        private string _fIsBirth;
 
         public Person SelectedItem { get; set; }
 
@@ -145,11 +145,11 @@ namespace СSharp_Task4.ViewModels
             }
         }
 
-        public bool FIsAdult
+        public string FIsAdult
         {
             get
             {
-                return _fIsAdult;
+                return ""+_fIsAdult;
             }
             set
             {
@@ -182,11 +182,11 @@ namespace СSharp_Task4.ViewModels
                 OnPropertyChanged();
             }
         }
-        public bool FIsBirth
+        public string FIsBirth
         {
             get
             {
-                return _fIsBirth;
+                return ""+_fIsBirth;
             }
             set
             {
@@ -208,6 +208,14 @@ namespace СSharp_Task4.ViewModels
         internal UserListViewModel()
         {
             _persons = new ObservableCollection<Person>(StationManager.DataStorage.UsersList);
+            FName = "";
+            FLastName = "";
+            FEmail = "";
+            FBirth = DateTime.MinValue;
+            FIsAdult = "";
+            FChineseSign = "";
+            FSunSign = "";
+            FIsBirth = "";
         }
 
         public RelayCommand<object> AddCommand
@@ -299,6 +307,7 @@ namespace СSharp_Task4.ViewModels
                 Email = "";
                 Birth = DateTime.Today;
 
+
              }
             LoaderManager.Instance.HideLoader();
         }
@@ -335,10 +344,10 @@ namespace СSharp_Task4.ViewModels
                     FLastName = "";
                     FEmail = "";
                     FBirth = DateTime.MinValue;
-                    FIsAdult = false;
+                    FIsAdult = "";
                     FChineseSign = "";
                     FSunSign = "";
-                    FIsBirth = false;
+                    FIsBirth = "";
 
                 }
                 catch (Exception e)
@@ -363,11 +372,11 @@ namespace СSharp_Task4.ViewModels
                         where (FLastName == "" || user.LastName == FLastName)
                         where (FEmail == "" || user.Email == FEmail)
                         where (FBirth == DateTime.MinValue || user.Name == FName)
-                        where user.IsAdult == FIsAdult
+                        where (FIsAdult == "" || user.IsAdult == Convert.ToBoolean(FIsAdult))
                         where (FChineseSign == "" || user.ChineseSign == FChineseSign)
                         where (FSunSign == "" || user.SunSign == FSunSign)
-                        where user.IsBirthday == FIsBirth
-              
+                        where (FIsBirth == "" || user.IsBirthday == Convert.ToBoolean(FIsBirth))
+
                                         select user;
                     Persons = new ObservableCollection<Person>(selectedUsers);
 
