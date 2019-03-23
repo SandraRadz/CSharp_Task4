@@ -1,18 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Data;
-using System.IO;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Security.Policy;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models;
 using KMA.ProgrammingInCSharp2019.Practice7.UserList.Properties;
-using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers;
 using СSharp_Task4.Tools;
 using СSharp_Task4.Tools.Managers;
 

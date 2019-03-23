@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models;
-using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools;
-using KMA.ProgrammingInCSharp2019.Practice7.UserList.Tools.Managers;
 using СSharp_Task4.Tools.Managers;
 
 namespace СSharp_Task4.Tools.DataStorage
