@@ -35,10 +35,10 @@
         <TextBox FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,10,298" Grid.Column="3" />
         <Label Content="Birthday"  FontSize="18" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="13,70,10.333,333" />
         <DatePicker FontSize="18" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedDate="{Binding Birth}" Margin="10,122,13.333,298"/>
-        <Button FontSize="18" Content="Add" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding GoCommand}" Margin="31,187,25,221" />
-        <Button FontSize="18" Content="Edit" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding GoCommand}" Margin="31,187,25,221" />
-        <Button FontSize="18" Content="Delete" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding GoCommand}" Margin="31,187,25,221"/>
-        <Button FontSize="18" Content="Save" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding GoCommand}" Margin="32,252,24,156"/>
+        <Button FontSize="18" Content="Add" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221" />
+        <Button FontSize="18" Content="Edit" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221" />
+        <Button FontSize="18" Content="Delete" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221"/>
+        <Button FontSize="18" Content="Save" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="32,252,24,156"/>
 
     </Grid>
 </UserControl>

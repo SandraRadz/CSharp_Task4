@@ -108,7 +108,9 @@ namespace СSharp_Task4.ViewModels
             {
                 try
                 {
-                    StationManager.CurrentUser = new Person(_name, _lastName, _email, _birth);
+                    StationManager.DataStorage.AddUser(new Person(_name, _lastName, _email, _birth));
+                    Persons = new ObservableCollection<Person>(StationManager.DataStorage.UsersList);
+                    MessageBox.Show("Yes");
 
                 }
                 catch (EmailError e)
@@ -131,7 +133,7 @@ namespace СSharp_Task4.ViewModels
                     MessageBox.Show(e.Message);
                     return false;
                 }
-                MessageBox.Show("Successful input");
+                
                 return true;
 
             });
