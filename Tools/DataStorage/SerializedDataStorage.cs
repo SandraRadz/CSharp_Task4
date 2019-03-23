@@ -57,6 +57,13 @@ namespace СSharp_Task4.Tools.DataStorage
             return _users;
         }
 
+        public List<Person> DeleteUser(Person user)
+        {
+            _users.Remove(user);
+            SaveChanges();
+            return _users;
+        }
+
         public List<Person> UsersList
         {
             get { return _users.ToList(); }

@@ -10,6 +10,8 @@ namespace СSharp_Task4.Tools.DataStorage
         //Person GetUserByLogin(string login);
 
         List<Person> AddUser(Person user);
+        List<Person> DeleteUser(Person user);
+
         List<Person> UsersList { get; }
     }
 }

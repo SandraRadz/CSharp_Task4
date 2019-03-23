@@ -24,6 +24,7 @@ namespace СSharp_Task4.ViewModels
         private string _lastName;
         private string _email;
         private DateTime _birth;
+        public Person SelectedItem { get; set; }
 
         private ObservableCollection<Person> _persons;
 
@@ -184,11 +185,22 @@ namespace СSharp_Task4.ViewModels
 
         private async void DeleteUser(object o)
         {
+            LoaderManager.Instance.ShowLoader();
             await Task.Run(() =>
             {
-
-
+                try
+                {
+                   
+                    StationManager.DataStorage.DeleteUser(SelectedItem);
+                    Persons = new ObservableCollection<Person>(StationManager.DataStorage.UsersList);
+                    MessageBox.Show("Yes");
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Some trouble with delete");
+               }
             });
+            LoaderManager.Instance.HideLoader();
         }
 
         private bool CanExecuteCommand()

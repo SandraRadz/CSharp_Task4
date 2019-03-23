@@ -15,7 +15,7 @@
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
 
-        <DataGrid ItemsSource="{Binding Persons, Mode=OneWay}" IsReadOnly="True" AutoGenerateColumns="False" Margin="0,0,5,0" >
+        <DataGrid ItemsSource="{Binding Persons, Mode=OneWay}"  SelectedItem="{Binding SelectedItem}" IsReadOnly="True" AutoGenerateColumns="False" Margin="0,0,5,0" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"></DataGridTextColumn>
@@ -37,7 +37,7 @@
         <DatePicker FontSize="18" Grid.Column="4" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedDate="{Binding Birth}" Margin="10,122,13.333,298"/>
         <Button FontSize="18" Content="Add" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221" />
         <Button FontSize="18" Content="Edit" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221" />
-        <Button FontSize="18" Content="Delete" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221"/>
+        <Button FontSize="18" Content="Delete" Grid.Column="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding DeleteCommand}" Margin="31,187,25,221"/>
         <Button FontSize="18" Content="Save" Grid.Column="2" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="32,252,24,156"/>
 
     </Grid>
