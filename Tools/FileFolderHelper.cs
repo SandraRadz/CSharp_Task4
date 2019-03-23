@@ -12,7 +12,7 @@ namespace СSharp_Task4.Tools
             Path.Combine(AppDataPath, "CSharpKMA");
 
         internal static readonly string StorageFilePath =
-            Path.Combine(AppFolderPath, "Radzievska_UserList.cskma");
+            Path.Combine(AppFolderPath, "Radzievska_UserList2.cskma");
 
         internal static bool CreateFolderAndCheckFileExistance(string filePath)
         {
