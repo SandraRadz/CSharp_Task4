@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:СSharp_Task4"
         mc:Ignorable="d"
-        Height="450" Width="1250">
+        Height="450" Width="1450">
     <Grid>
 
         <Grid.ColumnDefinitions>
@@ -16,10 +16,10 @@
             <ColumnDefinition Width="Auto" MinWidth="73.333" />
             <ColumnDefinition Width="74" />
             <ColumnDefinition Width="80" />
-            <ColumnDefinition Width="78" />
-            <ColumnDefinition Width="130"/>
-            <ColumnDefinition Width="162" />
-            <ColumnDefinition Width="162" />
+            <ColumnDefinition Width="97.333" />
+            <ColumnDefinition Width="158"/>
+            <ColumnDefinition Width="162.667" />
+            <ColumnDefinition Width="208" />
             <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Label Grid.Column ="0" Content="Date filter doesn't work, while date == 01/01/0001"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,14,0.667,406" Grid.ColumnSpan="6" />
@@ -40,18 +40,18 @@
         </ComboBox>
         <Label Grid.Column ="5" Content="SunSign"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="9.333,46,0.667,374" />
         <TextBox Grid.Column ="5" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FSunSign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="9.333,81,9.667,339" />
-        <Label Grid.Column ="6" Content="ChineseSign"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10.333,46,64.667,374" Grid.ColumnSpan="2" />
+        <Label Grid.Column ="6" Content="ChineseSign"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10.333,46,65,374" Grid.ColumnSpan="2" />
         <TextBox Grid.Column ="6" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FChineseSign, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10.333,81,8.667,339" />
-        <Label Grid.Column ="7" Content="IsBirth"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="9.333,46,129.667,374" Grid.ColumnSpan="2" />
-        <ComboBox Grid.Column ="7" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FIsBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="9.333,81,9.667,339">
+        <Label Grid.Column ="7" Content="IsBirth"  FontSize="18"  HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="9.333,46,132,374" Grid.ColumnSpan="2" />
+        <ComboBox Grid.Column ="7" FontSize="18" HorizontalAlignment="Stretch"   VerticalAlignment="Stretch" Text="{Binding FIsBirth, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="9.333,81,10,339">
             <TextBlock></TextBlock>
             <TextBlock>true</TextBlock>
             <TextBlock>false</TextBlock>
         </ComboBox>
         <Button FontSize="18" Content="All" Grid.Column="6" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AllCommand}" Margin="10.333,16,8.667,404" />
-        <Button FontSize="18" Content="Filter" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding FilterCommand}" Margin="9.333,16,9.667,405"/>
+        <Button FontSize="18" Content="Filter" Grid.Column="7" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding FilterCommand}" Margin="9.333,16,10,405"/>
 
-        <DataGrid ItemsSource="{Binding Persons, Mode=OneWay}" Grid.ColumnSpan="8" SelectedItem="{Binding SelectedItem}" IsReadOnly="True" AutoGenerateColumns="False" Margin="10,122,9.667,33" >
+        <DataGrid ItemsSource="{Binding Persons, Mode=OneWay}" Grid.ColumnSpan="8" SelectedItem="{Binding SelectedItem}" IsReadOnly="True" AutoGenerateColumns="False" Margin="10,122,10,33" >
             <DataGrid.Columns>
                 <DataGridTextColumn Header="First Name" Binding="{Binding Name}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Last name" Binding="{Binding LastName}"></DataGridTextColumn>
@@ -63,17 +63,17 @@
                 <DataGridTextColumn Header="IsBirthday" Binding="{Binding IsBirthday}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Label Content="Name" FontSize="18" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="13.333,70,161.667,350" Grid.ColumnSpan="2" />
-        <TextBox FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10.333,122,9.667,298" Grid.Column="8"/>
-        <Label Content="Last name" FontSize="18" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10.333,70,23.667,350" />
-        <TextBox FontSize="18" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10.333,122,9.667,298"/>
-        <Label Content="Email"  FontSize="18" Grid.Column ="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10.333,70,54.667,350" />
-        <TextBox FontSize="18" HorizontalAlignment="Stretch" Grid.Column ="10"  VerticalAlignment="Stretch" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10.333,122,9.667,298" />
-        <Label Content="Birthday"  FontSize="18" Grid.Column="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="13.333,70,10,333" />
-        <DatePicker FontSize="18" Grid.Column="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedDate="{Binding Birth}" Margin="10.333,122,13,298"/>
-        <Button FontSize="18" Content="Add" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31.333,187,24.667,221" />
-        <Button FontSize="18" Content="Edit" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding EditCommand}" Margin="31.333,187,24.667,221" />
-        <Button FontSize="18" Content="Delete" Grid.Column="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding DeleteCommand}" Margin="31.333,187,24.667,221"/>
+        <Label Content="Name" FontSize="18" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="13,70,4,350" />
+        <TextBox FontSize="18" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,10,298" Grid.Column="8"/>
+        <Label Content="Last name" FontSize="18" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10,70,22.667,350" />
+        <TextBox FontSize="18" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Text="{Binding LastName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="10,122,8.667,298"/>
+        <Label Content="Email"  FontSize="18" Grid.Column ="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="11.333,70,55.667,350" />
+        <TextBox FontSize="18" HorizontalAlignment="Stretch" Grid.Column ="10"  VerticalAlignment="Stretch" Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Margin="11.333,122,10.667,298" />
+        <Label Content="Birthday"  FontSize="18" Grid.Column="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="12.333,70,10,333" />
+        <DatePicker FontSize="18" Grid.Column="11" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" SelectedDate="{Binding Birth}" Margin="8,122,98,298"/>
+        <Button FontSize="18" Content="Add" Grid.Column="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding AddCommand}" Margin="31,187,25,221" />
+        <Button FontSize="18" Content="Edit" Grid.Column="9" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding EditCommand}" Margin="31,187,23.667,221" />
+        <Button FontSize="18" Content="Delete" Grid.Column="10" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Command="{Binding DeleteCommand}" Margin="32.333,187,56.667,221"/>
     </Grid>
 
 </UserControl>

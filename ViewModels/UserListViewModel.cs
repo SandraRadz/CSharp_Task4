@@ -272,8 +272,6 @@ namespace СSharp_Task4.ViewModels
                 {
                     StationManager.DataStorage.AddUser(new Person(_name, _lastName, _email, _birth));
                     Persons = new ObservableCollection<Person>(StationManager.DataStorage.UsersList);
-                    MessageBox.Show("Yes");
-
                 }
                 catch (EmailError e)
                 {
@@ -295,8 +293,6 @@ namespace СSharp_Task4.ViewModels
                     MessageBox.Show(e.Message);
                     return false;
                 }
-
-                
                 return true;
 
             });
@@ -322,7 +318,7 @@ namespace СSharp_Task4.ViewModels
                    
                     StationManager.DataStorage.DeleteUser(SelectedItem);
                     Persons = new ObservableCollection<Person>(StationManager.DataStorage.UsersList);
-                    MessageBox.Show("Yes");
+            
                 }
                 catch(Exception e)
                 {
