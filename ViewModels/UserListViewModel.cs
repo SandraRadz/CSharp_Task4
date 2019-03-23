@@ -113,19 +113,11 @@ namespace СSharp_Task4.ViewModels
             get
             {
                 return _editUserCommand ?? (_editUserCommand = new RelayCommand<object>(
-                           CreateUser, o => CanExecuteCommand()));
+                           EditUser));
             }
         }
 
-        public RelayCommand<object> SaveCommand
-        {
-            get
-            {
-                return _saveUserCommand ?? (_saveUserCommand = new RelayCommand<object>(
-                           CreateUser, o => CanExecuteCommand()));
-            }
-        }
-
+    
         public RelayCommand<object> DeleteCommand
         {
             get
@@ -202,6 +194,30 @@ namespace СSharp_Task4.ViewModels
             });
             LoaderManager.Instance.HideLoader();
         }
+
+        private async void EditUser(object o)
+        {
+            LoaderManager.Instance.ShowLoader();
+            await Task.Run(() =>
+            {
+                try
+                {
+                    
+                    Name = SelectedItem.Name;
+                    LastName = SelectedItem.LastName;
+                    Email = SelectedItem.Email;
+                    Birth = SelectedItem.Birth;
+                    DeleteUser(SelectedItem);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Some trouble with edit");
+                }
+            });
+            LoaderManager.Instance.HideLoader();
+        }
+
+     
 
         private bool CanExecuteCommand()
         {
