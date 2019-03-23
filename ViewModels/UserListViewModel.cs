@@ -359,13 +359,13 @@ namespace СSharp_Task4.ViewModels
 
                    var users = StationManager.DataStorage.UsersList;
                     var selectedUsers = from user in users
-                        where (FName!=""?user.Name == FName:1==1)
-                        where (FLastName != "" ? user.LastName == FLastName : 1 == 1)
-                        where (FEmail != "" ? user.Email == FEmail : 1 == 1)
-                        //where (FBirth != "" ? user.Name == FName : 1 == 1)
+                        where (FName == "" || user.Name == FName)
+                        where (FLastName == "" || user.LastName == FLastName)
+                        where (FEmail == "" || user.Email == FEmail)
+                        where (FBirth != DateTime.Today || user.Name == FName)
                         where user.IsAdult == FIsAdult
-                        where (FChineseSign != "" ? user.ChineseSign == FChineseSign : 1 == 1)
-                        where (FSunSign != "" ? user.SunSign == FSunSign : 1 == 1)
+                        where (FChineseSign == "" || user.ChineseSign == FChineseSign)
+                        where (FSunSign == "" || user.SunSign == FSunSign)
                         where user.IsBirthday == FIsBirth
               
                                         select user;
