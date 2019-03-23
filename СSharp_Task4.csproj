@@ -57,7 +57,10 @@
     </ApplicationDefinition>
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tools\FileFolderHelper.cs" />
+    <Compile Include="Tools\PersonListHelper.cs" />
+    <Compile Include="Tools\RelayCommand.cs" />
     <Compile Include="Tools\SerializationManager.cs" />
+    <Compile Include="Tools\StationManager.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\UserListViewModel.cs" />
     <Compile Include="Views\UserList.xaml.cs">

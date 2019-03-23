@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using СSharp_Task4.Tools;
 using СSharp_Task4.ViewModels;
 
 namespace СSharp_Task4
@@ -25,6 +27,12 @@ namespace СSharp_Task4
         {
             InitializeComponent();
             DataContext = new MainWindowViewModel();
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            PersonListHelper.SaveData();
+            base.OnClosing(e);
         }
     }
 }
