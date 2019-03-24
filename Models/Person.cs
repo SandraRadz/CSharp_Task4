@@ -231,7 +231,7 @@ namespace KMA.ProgrammingInCSharp2019.Practice5.Navigation.Models
             return "";
         }
 
-        public string CalcChineseSign()
+        private string CalcChineseSign()
         {
             System.Globalization.EastAsianLunisolarCalendar cc = new System.Globalization.ChineseLunisolarCalendar();
             int sexagenaryYear = cc.GetSexagenaryYear(Birth);
